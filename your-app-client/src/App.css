@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gruppo&family=Noto+Serif+Malayalam:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/*  @import url("./assets/fonts/PP\ Hatton\ Medium\ 500.otf");
+
+@font-face {
+  font-family: "Hatton";
+  src: url("./assets/fonts/PP\ Hatton\ Medium\ 500.otf"); } */
+
 
 .noto-serif-malayalam {
-  font-family: "Noto Serif Malayalam", serif;
+  font-family:"Hatton" ,"Noto Serif Malayalam", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -88,10 +94,11 @@
   
 }
 .intro-web h1{
+  font-family: "Hatton";
   margin-top: 80px;
   font-size: 24px;
   color: white;
-  font-family: "Noto Serif Malayalam", serif;
+  
 }
 .intro-web p{
   font-size: 18px;
@@ -233,4 +240,34 @@
   padding-top: 40px;
   padding-bottom: 20px;
   font-size: 30px;
+}
+
+/* COGER CITA */
+
+.titulos-comfirmacion{
+  font-size: 40px;
+  padding-bottom: 80px;
+}
+.conditions{
+  font-size: 10px;
+  padding: 10px;
+}
+.conditions-section h3{
+  text-transform: uppercase;
+  font-size: 14px;
+  padding-top: 40px;
+}
+.conditions-section ul{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+/* GALERIA */
+
+.galeria-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }

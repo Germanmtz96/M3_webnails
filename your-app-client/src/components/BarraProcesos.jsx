@@ -1,8 +1,12 @@
 import React from 'react'
+import ProgressBar from 'react-bootstrap/ProgressBar';
+
+
 
 function BarraProcesos() {
   return (
-    <div>BarraProcesos</div>
+    <ProgressBar animated now={1} />
+    
   )
 }
 

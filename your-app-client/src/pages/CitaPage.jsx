@@ -1,8 +1,13 @@
 import React from 'react'
+import BarraProcesos from '../components/BarraProcesos'
+import CitaServicioCard from '../components/CitaServicioCard';
 
 function CitaPage() {
   return (
-    <div>CitaPage</div>
+    <div>
+      <BarraProcesos/>
+      <CitaServicioCard/>
+    </div>
   )
 }
 
