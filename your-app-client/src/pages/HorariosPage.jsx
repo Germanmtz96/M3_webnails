@@ -1,8 +1,11 @@
 import React from 'react'
+import TablaHorario from "../components/TablaHorario"
 
 function HorariosPage() {
   return (
-    <div>HorariosPage</div>
+    <>
+      <TablaHorario/>
+    </>
   )
 }
 
