@@ -13,14 +13,15 @@ import Button from 'react-bootstrap/Button';
 function PerfilPage() {
   const [dataPerfil, setDataPerfil] = useState(null);
   const [show, setShow] = useState(false);
-  const [telefono,setTelefono] = useState(null)
+  const [tlf,setTelefono] = useState(null)
+  const [errorMessage, setErrorMessage]= useState(null)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleSubmit = async (event) =>{
     event.preventDefault()
     await editTelefono()
-
+    
   }
   function handleTelefono (event){
     setTelefono(event.target.value)
@@ -31,9 +32,15 @@ function PerfilPage() {
         tlf
     }
         try {
-            await service.patch(`/${dataPerfil._id}/tlf`, editedTelefono)
+            await service.patch(`/users/propio/tlf`, editedTelefono)
+            setShow(false)
         } catch (error) {
+        
             console.log(error)
+            if(error.response && error.response.status === 400){
+                setErrorMessage(error.response.data.errorMessage)
+            }
+           
         }  
     
     }
@@ -98,6 +105,7 @@ function PerfilPage() {
                     placeholder="ej : 777435345"
                     autoFocus
                   />
+                   {errorMessage && <p>{errorMessage}</p>}
                 </Form.Group>
                 
               </Form>
