@@ -20,7 +20,7 @@ function CitaServicioCard() {
     </Card.Body>
   </Card>
   <section className='conditions'>
-<div class="conditions-section">
+<div className="conditions-section">
   <h3>Condiciones para Uñas Acrílicas</h3>
   <p>
     Para garantizar el mejor resultado en la aplicación de uñas acrílicas, le solicitamos que:
@@ -33,7 +33,7 @@ function CitaServicioCard() {
   </ul>
 </div>
 
-<div class="conditions-section">
+<div className="conditions-section">
   <h3>Condiciones para Uñas Semipermanentes</h3>
   <p>
     Para asegurar un resultado perfecto en la aplicación de uñas semipermanentes, tenga en cuenta las siguientes recomendaciones:
@@ -46,7 +46,7 @@ function CitaServicioCard() {
   </ul>
 </div>
 <hr />
-  <div class="policy-section">
+  <div className="policy-section">
   <h3>Política de Cancelación</h3>
   <p>
     Lamentamos informar que no se podrá cambiar ni cancelar la cita con menos de 24 horas de anticipación. Esto nos permite gestionar mejor nuestro tiempo y ofrecer el mejor servicio a todos nuestros clientes. Agradecemos su comprensión y cooperación.

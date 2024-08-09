@@ -10,7 +10,8 @@ function ServiciosPage() {
   return (
     <div className="servicios">
       <section className="servicio-container">
-        <h2>Acrilico</h2>
+        <h2 style={{ fontFamily: 'Hatton',
+  textTransform: "uppercase"}}>Acrilico</h2>
         <div className="servicios-pasos">
           <div>
             <img src={Uno} />
@@ -64,7 +65,8 @@ function ServiciosPage() {
       </section>
       <hr />
       <section className="servicio-container">
-        <h2>Semipermanente</h2>
+        <h2 style={{ fontFamily: 'Hatton',
+  textTransform: "uppercase"}}>Semipermanente</h2>
         <div className="servicios-pasos">
           <div>
             <img src={Uno} />

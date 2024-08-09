@@ -1,31 +1,48 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { AuthContext } from '../context/auth.context';
 
 function MyNavbar() {
+  const navigate = useNavigate()
+  const { isLoggedIn, authenticateUser } = useContext(AuthContext)
+
+  const handleLogout = () => {
+
+    localStorage.removeItem("authToken")
+    authenticateUser()
+    navigate("/")
+  }
+
   return (
   
     <Navbar bg="dark" variant="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand  as={Link} to="/" style={{textTransform:"uppercase", fontSize:"12px", fontWeight: "300", letterSpacing: "0.2rem"}}>Reixelnails</Navbar.Brand>
           <Nav className="me-auto" style={{textTransform:"uppercase", fontSize:"8px",  fontFamily: "Gruppo"}}>
-            <Nav.Link  as={Link} to="/cita" >Coger cita</Nav.Link>
-            <Nav.Link  as={Link} to="/horarios" >Horario</Nav.Link>
+            <Nav.Link  as={Link} to="/servicios" >Servicios</Nav.Link>
+            { isLoggedIn && <Nav.Link  as={Link} to="/horarios" >Horario</Nav.Link>}
             <Nav.Link  as={Link} to="/galeria" >Galeria</Nav.Link>
           </Nav>
           <NavDropdown title="" align="end" id="basic-nav-dropdown" style={{color:'white'}}>
-            <NavDropdown.Item href="#action/3.1">Perfil</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
+          { isLoggedIn && <NavDropdown.Item as={Link} to="/perfil">Perfil</NavDropdown.Item>}
+            <NavDropdown.Item as={Link} to="/clientas">
               Clientas
             </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Agenda</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/agenda">Agenda</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
+            { isLoggedIn && <NavDropdown.Item onClick={handleLogout}>
               Cerrar Sesión
-            </NavDropdown.Item>
+            </NavDropdown.Item>}
+            {!isLoggedIn &&<NavDropdown.Item as={Link} to="/singup">
+              Registrarse
+            </NavDropdown.Item>}
+            {!isLoggedIn &&<NavDropdown.Item as={Link} to="/login">
+              Iniciar Sesión
+            </NavDropdown.Item>}
           </NavDropdown>
         </Container>
       </Navbar>

@@ -183,9 +183,10 @@
   width: 200px;
 }
 .sobre-mi-img-span span{
+  font-family: 'Gill Sans';
   padding: 5px;
   width: 300px;
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   background-color: rgb(20,21,23);
   position: absolute;
@@ -198,8 +199,10 @@
 
 .horario-title{
   font-size: 40px;
+  font-family: 'Hatton';
   text-transform: uppercase;
-  height: 45px;
+  height: 35px;
+
   
 }
 
@@ -225,6 +228,7 @@
   font-size: 18px;
   font-weight: 400;
   
+  
 }
 .servicios-pasos > div p{
   padding-top: 15px;
@@ -245,14 +249,17 @@
 /* COGER CITA */
 
 .titulos-comfirmacion{
-  font-size: 40px;
+  font-size: 36px;
   padding-bottom: 80px;
+  font-family: 'Hatton';
+  text-transform: uppercase;
 }
 .conditions{
   font-size: 10px;
   padding: 10px;
 }
 .conditions-section h3{
+  font-family: 'Hatton';
   text-transform: uppercase;
   font-size: 14px;
   padding-top: 40px;
@@ -270,4 +277,98 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+
+/* SINGUP */
+.singup-titulo{
+  font-family: 'Hatton';
+  text-transform: uppercase;
+  font-size: 26px;
+  padding: 20px;
+}
+.singup-formulario{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 648px;
+}
+.singup-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+/* PERFIL */
+.perfil-container{
+  background-color:rgb(209,182,161) ;
+  display: flex;
+  flex-direction: column;
+}
+.perfil-container img {
+  width: 60px;
+}
+.encabezado-perfil{
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+}
+.encabezado-perfil h2{
+  color: black;
+  font-family: "Hatton";
+  padding-top: 20px;
+}
+.divs-perfil{
+  color:rgb(209,182,161) ;
+  background-color: #EFE9DC;
+  font-family:'Gill Sans' ;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+.divs-perfil h4{
+  padding-top: 30px;
+  text-transform: uppercase;
+  color: black;
+  font-family: "Hatton";
+}
+.divs-perfil div{
+
+  position: relative;
+  margin: 10px 7% 10px 7%;
+  border: 1px solid black;
+}
+.divs-perfil > div p{
+  font-size: 20px;
+  margin-top: 16px;
+}
+.divs-perfil > div img{
+  width: 30px;
+  position: absolute;
+  transform: translate(-490%, 50%); 
+}
+.btn-edit-tlf{
+  background-color:rgb(209,182,161) ;
+  position: absolute;
+  transform: translate(110%, -180%); 
+  width: 70px;
+}
+.perfil-container hr{
+ 
+    border: 1; 
+    height: 1px; 
+    background-color: #EFE9DC;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 0px 0px; 
+}
+.privacidad{
+  color: white;
+  font-family: 'Gill Sans';
+  padding: 40px;
+  padding-top: 50px;
+  padding-bottom: 40px;
+  letter-spacing: 1.5px;
 }
