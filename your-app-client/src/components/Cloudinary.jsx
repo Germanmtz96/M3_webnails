@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react'
 import { useState } from 'react'
 
@@ -20,10 +21,7 @@ const Cloudinary = () => {
 
         try {
             //10 enviamos el pedido de upload con el data en body 
-            const response = await fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
-                method: 'POST',
-                body: data
-            });
+            const response = await axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,data);
 
             const file = await response.json();     //11 Traducimos la respuesta de JSON
             setImage(file.secure_url);              //13 Recuperamos la url de la imagen en estado local
@@ -38,14 +36,13 @@ const Cloudinary = () => {
 
   return (
     <div>
-        <h1>Upload Image</h1>
 
         {/*1 - El siguiente input type file envia la imagen por el evento al handler uploadImage */}
 
         <input type="file"
         name="file"
         placeholder='Upload an image'
-        // accept='image/png, image/jpeg' 
+        accept='image/png, image/jpeg' 
         onChange={(e)=>uploadImage(e)}
         />
 

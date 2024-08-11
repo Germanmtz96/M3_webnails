@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gruppo&family=Noto+Serif+Malayalam:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-/*  @import url("./assets/fonts/PP\ Hatton\ Medium\ 500.otf");
-
-@font-face {
-  font-family: "Hatton";
-  src: url("./assets/fonts/PP\ Hatton\ Medium\ 500.otf"); } */
 
 
 .noto-serif-malayalam {
@@ -27,6 +22,7 @@
 /* Footer */
 
 .footer-container{
+  
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -70,8 +66,13 @@
 }
 
 /* Navbar */
-
+.navbar-container{
+ 
+}
 /* Home */
+.home-page{
+  
+}
 .btn-intro-web{
   font-size: 10px;
   text-decoration: none ;
@@ -180,7 +181,7 @@
 .sobre-mi-img{
   padding-top: 20px;
   margin: 20px;
-  width: 200px;
+  width: 190px;
 }
 .sobre-mi-img-span span{
   font-family: 'Gill Sans';
@@ -271,14 +272,36 @@
 }
 
 /* GALERIA */
-
+.cartas-galeria{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
+}
+.likes-galeria {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: white; 
+  padding: 45px; 
+  opacity: 0; 
+  visibility: hidden;
+  transform: translate(0%, 0%); 
+  transition: opacity 0.3s, visibility 0.3s; 
+}
+.cartas-galeria:hover .likes-galeria {
+  visibility: visible; 
+  opacity: 1;
+}
 .galeria-container{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
 }
-
+.foto-publicacion{
+  width: 200px;
+  
+}
 
 /* SINGUP */
 .singup-titulo{
@@ -304,7 +327,7 @@
 
 /* PERFIL */
 .perfil-container{
-  background-color:rgb(209,182,161) ;
+  
   display: flex;
   flex-direction: column;
 }
@@ -317,12 +340,14 @@
   height: 70px;
 }
 .encabezado-perfil h2{
-  color: black;
+  text-transform: uppercase;
+  color: rgb(27, 25, 28);
   font-family: "Hatton";
   padding-top: 20px;
+  font-size: 22px;
 }
 .divs-perfil{
-  color:rgb(209,182,161) ;
+  color:rgb(27, 25, 28) ;
   background-color: #EFE9DC;
   font-family:'Gill Sans' ;
   display: flex;
@@ -330,16 +355,17 @@
   padding-bottom: 40px;
 }
 .divs-perfil h4{
-  padding-top: 30px;
+  padding-top: 18px;
   text-transform: uppercase;
-  color: black;
+  color:rgb(209,182,161);
   font-family: "Hatton";
+  font-size: 30px;
 }
 .divs-perfil div{
 
   position: relative;
   margin: 10px 7% 10px 7%;
-  border: 1px solid black;
+  border: 1px solid rgb(27, 25, 28);
 }
 .divs-perfil > div p{
   font-size: 20px;
@@ -365,10 +391,36 @@
     margin: 0px 0px; 
 }
 .privacidad{
+  background-color:rgb(209,182,161) ;
   color: white;
   font-family: 'Gill Sans';
   padding: 40px;
   padding-top: 50px;
-  padding-bottom: 40px;
+  padding-bottom: 60px;
   letter-spacing: 1.5px;
+  margin-bottom: 0px;
+}
+/* LISTA CLIENTES */
+.datos-clientes{
+  display: flex;
+  flex-direction: column;
+  align-items:start;
+}
+.clientas-encabezado{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content:space-between;
+  height: 70px;
+}
+.buscador-clientas{
+  margin: 15px;
+  width: 200px;
+  height: 45px;
+}
+.clientas-encabezado h2{
+  text-transform: uppercase;
+  margin: 20px;
+  font-size: 30px;
+  font-family: "Hatton";
 }

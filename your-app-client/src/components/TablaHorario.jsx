@@ -1,19 +1,15 @@
 import React from 'react'
 import FotoCalendario from "../assets/foto-calendario.jpg"
+import { InlineWidget } from "react-calendly";
 
 function TablaHorario() {
   return (
     <>
       <h2 className='horario-title'>Horario</h2>
       
-      <iframe
-        src="https://germanmtz96.youcanbook.me/"
-        
-        width="100%"
-        height="670px"
-        style={{ border: 'none' }}
-        title="Booking Calendar"
-      ></iframe>
+      <div className="App">
+      <InlineWidget url="https://calendly.com/germanmtz96" />
+    </div>
 
       
     </>

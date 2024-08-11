@@ -8,19 +8,19 @@ import { AuthContext } from '../context/auth.context';
 
 function MyNavbar() {
   const navigate = useNavigate()
-  const { isLoggedIn, authenticateUser } = useContext(AuthContext)
+  const { isLoggedIn, authenticateUser, isAdmin } = useContext(AuthContext)
 
   const handleLogout = () => {
-
     localStorage.removeItem("authToken")
     authenticateUser()
     navigate("/")
   }
+  console.log(isAdmin)
 
   return (
   
-    <Navbar bg="dark" variant="dark" data-bs-theme="dark">
-        <Container>
+    <Navbar bg="dark" variant="dark" data-bs-theme="dark" className='navbar-container'>
+        <Container >
           <Navbar.Brand  as={Link} to="/" style={{textTransform:"uppercase", fontSize:"12px", fontWeight: "300", letterSpacing: "0.2rem"}}>Reixelnails</Navbar.Brand>
           <Nav className="me-auto" style={{textTransform:"uppercase", fontSize:"8px",  fontFamily: "Gruppo"}}>
             <Nav.Link  as={Link} to="/servicios" >Servicios</Nav.Link>
@@ -29,10 +29,10 @@ function MyNavbar() {
           </Nav>
           <NavDropdown title="" align="end" id="basic-nav-dropdown" style={{color:'white'}}>
           { isLoggedIn && <NavDropdown.Item as={Link} to="/perfil">Perfil</NavDropdown.Item>}
-            <NavDropdown.Item as={Link} to="/clientas">
+            { isAdmin && <NavDropdown.Item as={Link} to="/clientas">
               Clientas
-            </NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/agenda">Agenda</NavDropdown.Item>
+            </NavDropdown.Item>}
+            { isAdmin && <NavDropdown.Item as={Link} to="/agenda">Agenda</NavDropdown.Item>}
             <NavDropdown.Divider />
             { isLoggedIn && <NavDropdown.Item onClick={handleLogout}>
               Cerrar Sesión

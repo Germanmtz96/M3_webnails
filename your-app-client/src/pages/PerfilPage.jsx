@@ -71,7 +71,7 @@ function PerfilPage() {
       </div>
       <hr />
       <div className="divs-perfil">
-        <h4>Detalles del contacto</h4>
+        <h4>Detalles</h4>
         <div>
           <img src={FotoCorreo} />
           <p>{dataPerfil.email}</p>

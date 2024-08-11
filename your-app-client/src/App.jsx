@@ -16,6 +16,7 @@ import ErrorNotFound from './pages/ErrorNotFound'
 import ErrorPage from './pages/ErrorPage'
 import Private from './components/auth/Private';
 import Public from './components/auth/Public';
+import Admin from './components/auth/Admin';
 
 function App() {
   
@@ -30,11 +31,11 @@ function App() {
 
         <Route path='/horarios' element={ <Private> <HorariosPage /> </Private> } />
 
-        <Route path='/agenda' element={ <AgendaPage /> } />
+        <Route path='/agenda' element={ <Admin> <AgendaPage /> </Admin> } />
 
         <Route path='/cita' element={ <CitaPage /> } />
 
-        <Route path='/clientas' element={ <ClientasPage /> } />
+        <Route path='/clientas' element={ <Admin> <ClientasPage /> </Admin> } />
 
         <Route path='/galeria' element={ <GaleriaPage /> } />
 
