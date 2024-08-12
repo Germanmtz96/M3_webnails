@@ -44,10 +44,12 @@ function GaleriaPage() {
         { isAdmin && <button
           onClick={handleShow}
           style={{
+            margin: '20px',
+            height:'30px',
             border: "none",
             color: "white",
             textTransform: "uppercase",
-            fontSize: "14px",
+            fontSize: "12px",
           }}
         >
           Subir Publicación

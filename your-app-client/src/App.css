@@ -189,7 +189,7 @@
   width: 300px;
   font-size: 11px;
   text-transform: uppercase;
-  background-color: rgb(20,21,23);
+  background-color: rgb(20, 21, 23);
   position: absolute;
   top: 80%; 
   left: 40%;
@@ -198,12 +198,11 @@
 /* Horario */
 
 .horario-title{
-  font-size: 40px;
-  font-family: 'Hatton';
+  display: flex;
   text-transform: uppercase;
-  height: 35px;
-
-  
+  margin: 20px;
+  font-size: 30px;
+  font-family: "Hatton";
 }
 
 /* Servicios */
@@ -271,7 +270,19 @@
 }
 
 /* GALERIA */
-
+.galeria-encabezado {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content:space-between;
+  height: 70px;
+}
+.galeria-encabezado h2 {
+  text-transform: uppercase;
+  margin: 20px;
+  font-size: 30px;
+  font-family: "Hatton";
+}
 .cartas-galeria{
   position: relative;
   width: 100px;
@@ -364,16 +375,14 @@
 }
 .divs-perfil{
   color:rgb(27, 25, 28) ;
-  background-color: #EFE9DC;
   font-family:'Gill Sans' ;
   display: flex;
   flex-direction: column;
-  padding-bottom: 40px;
+  
 }
 .divs-perfil h4{
-  padding-top: 18px;
+  margin-top: 22px;
   text-transform: uppercase;
-  color:rgb(209,182,161);
   font-family: "Hatton";
   font-size: 30px;
 }
@@ -385,7 +394,7 @@
 }
 .divs-perfil > div p{
   font-size: 20px;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 .divs-perfil > div img{
   width: 30px;
