@@ -8,6 +8,7 @@ import FotoUsername from "../assets/iconos-perfil/username.png";
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
 
 
 function PerfilPage() {
@@ -16,6 +17,7 @@ function PerfilPage() {
   const [tlf,setTelefono] = useState(null)
   const [errorMessage, setErrorMessage]= useState(null)
 
+  const navigate = useNavigate()
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleSubmit = async (event) =>{
@@ -34,6 +36,7 @@ function PerfilPage() {
         try {
             await service.patch(`/users/propio/tlf`, editedTelefono)
             setShow(false)
+            getData()
         } catch (error) {
         
             console.log(error)
@@ -52,6 +55,16 @@ function PerfilPage() {
     try {
       const response = await service.get("/users");
       setDataPerfil(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDelete = async () => {
+    try {
+      await service.delete(`/users/${dataPerfil._id}`);
+      getData();
+      navigate("/")
     } catch (error) {
       console.log(error);
     }
@@ -124,6 +137,17 @@ function PerfilPage() {
           <img src={FotoUsername} />
           <p>{dataPerfil.username}</p>
         </div>
+        <button
+                onClick={handleDelete}
+                style={{
+                    border: "none",
+                    color: "white",
+                    textTransform: "uppercase",
+                    fontSize: "14px",
+                }}
+              >
+                Borrar Cuenta
+              </button>
       </div>
       <hr />
       <p className="privacidad">

@@ -195,7 +195,6 @@
   left: 40%;
   transform: translate(-50%, -50%); 
 }
-
 /* Horario */
 
 .horario-title{
@@ -272,11 +271,13 @@
 }
 
 /* GALERIA */
+
 .cartas-galeria{
   position: relative;
   width: 100px;
   height: 100px;
   margin-bottom: 5px;
+  overflow: hidden;
 }
 .likes-galeria {
   position: absolute;
@@ -295,14 +296,29 @@
 .galeria-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content:space-evenly;
   flex-wrap: wrap;
 }
 .foto-publicacion{
+  height: 265px;
   width: 200px;
-  
 }
-
+.comentarios-container{
+  max-height: 265px; 
+  height: 265px;
+  overflow-y: auto; 
+  padding: 5px; 
+  border-bottom: 1px solid #ddd;
+}
+.comentario-card {
+  margin-bottom: 10px; 
+  font-size: 10px;
+  background-color: #f9f9f9;
+}
+.comentario-btn-delete{
+  position: absolute;
+  transform: translate(370%, -40%);
+}
 /* SINGUP */
 .singup-titulo{
   font-family: 'Hatton';

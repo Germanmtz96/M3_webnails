@@ -1,21 +1,51 @@
-import React from 'react'
-import Accordion from 'react-bootstrap/Accordion';
+import React from "react";
+import Accordion from "react-bootstrap/Accordion";
+import service from "../service/service.config";
 
 function ClientaCard(props) {
+  const { index, clienta, getData } = props;
 
-  const {index, clienta} = props
+  const handleDelete = async () => {
+    try {
+      await service.delete(`/users/${clienta._id}/admin`);
+      getData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <Accordion.Item eventKey={index} >
-        <Accordion.Header>{clienta.nombreCompleto.toUpperCase()}</Accordion.Header>
-        <Accordion.Body className='datos-clientes'>
-          <p><strong>Correo electrónico:</strong> {clienta.email}</p>
-          <p><strong>Nombre de usuario:</strong> {clienta.username}</p>
-          <p><strong>Telefono:</strong> {clienta.tlf}</p>
-          <p><strong>Cuando se registro:</strong> {clienta.createdAt}</p>
-        </Accordion.Body>
-      </Accordion.Item>
-  )
+    <Accordion.Item eventKey={index}>
+      <Accordion.Header>
+        {clienta.nombreCompleto.toUpperCase()}
+      </Accordion.Header>
+      <Accordion.Body className="datos-clientes">
+        <p>
+          <strong>Correo electrónico:</strong> {clienta.email}
+        </p>
+        <p>
+          <strong>Nombre de usuario:</strong> {clienta.username}
+        </p>
+        <p>
+          <strong>Telefono:</strong> {clienta.tlf}
+        </p>
+        <p>
+          <strong>Cuando se registro:</strong> {clienta.createdAt}
+        </p>
+        <button
+          onClick={handleDelete}
+          style={{
+            border: "none",
+            color: "white",
+            textTransform: "uppercase",
+            fontSize: "14px",
+          }}
+        >
+          Eliminar Usuario
+        </button>
+      </Accordion.Body>
+    </Accordion.Item>
+  );
 }
 
-export default ClientaCard
+export default ClientaCard;

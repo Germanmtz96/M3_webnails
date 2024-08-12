@@ -15,7 +15,7 @@ function MyNavbar() {
     authenticateUser()
     navigate("/")
   }
-  console.log(isAdmin)
+  console.log(`isAdmin ${isAdmin}`)
 
   return (
   

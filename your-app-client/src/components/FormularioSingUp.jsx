@@ -42,7 +42,7 @@ function FormularioSingUp() {
         console.log(newUser)
         try {
             
-            await service.post("/auth/singup", newUser)
+            await service.post("/auth/signup", newUser)
             navigate("/login")
 
         } catch (error) {

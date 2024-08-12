@@ -54,7 +54,7 @@ function ClientasPage() {
         <h2>Clientes</h2>
       </div>
       {filteredClientasList.map((eachClienta, index) => {
-        return <ClientaCard index={index} clienta={eachClienta} key={index} />;
+        return <ClientaCard index={index} clienta={eachClienta} key={index} getData={getData} />;
       })}
     </Accordion>
   );
