@@ -235,9 +235,11 @@
 .contariner-calendario {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content:space-between;
 }
 .fecha-selec{
+
   text-transform: uppercase;
   font-size: 20px;
   margin-top: 10px;
