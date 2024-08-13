@@ -1,8 +1,11 @@
 import React from 'react'
+import CitaFormulario from '../components/CitaFormulario'
 
 function AgendaPage() {
   return (
-    <div>AgendaPage</div>
+    <div>
+      <CitaFormulario/>
+    </div>
   )
 }
 

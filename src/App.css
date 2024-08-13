@@ -196,7 +196,53 @@
   transform: translate(-50%, -50%); 
 }
 /* Horario */
+.react-calendar__tile--active {
+  background-color: #AB9477 !important;
+  color: white;
+}
+.react-calendar__tile:hover {
+  background-color: #8e6e5f !important; 
+}
+.react-calendar__tile.highlight {
+  background-color: #DFD6C2; 
+  color: black; 
+}
 
+.react-calendar__tile.hidden {
+  color: #b0bec5; 
+  background-color: #EFE9DC;
+  pointer-events: none; 
+}
+
+.react-calendar__tile.hidden:hover {
+  background: none;
+}
+
+.react-calendar__navigation button {
+  visibility: visible;
+}
+.react-calendar__month-view__weekdays {
+  display: flex;
+  justify-content: space-between;
+}
+.react-calendar__month-view__weekdays__weekday {
+  background-color: #8e6e5f;
+  padding: 5px 0;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+.contariner-calendario {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+.fecha-selec{
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 10px;
+  font-family: "Hatton";
+}
 .horario-title{
   display: flex;
   text-transform: uppercase;
@@ -291,18 +337,21 @@
   overflow: hidden;
 }
 .likes-galeria {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5); 
-  color: white; 
-  padding: 45px; 
-  opacity: 0; 
-  visibility: hidden;
-  transform: translate(0%, 0%); 
-  transition: opacity 0.3s, visibility 0.3s; 
+ 
+  
+
 }
 .cartas-galeria:hover .likes-galeria {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5); 
   visibility: visible; 
   opacity: 1;
+  color: white; 
+  padding: 45px; 
+  opacity: 1; 
+  transform: translate(0%, -5%); 
+  transition: opacity 0.3s, visibility 0.3s; 
+  pointer-events: none;
 }
 .galeria-container{
   display: flex;
