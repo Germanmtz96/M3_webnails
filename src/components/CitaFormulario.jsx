@@ -12,10 +12,19 @@ import HorarioCard from "./HorarioCard";
 import Accordion from "react-bootstrap/Accordion";
 import { useNavigate } from "react-router-dom";
 
+import FotoCalendario from "../assets/foto-calendario.png";
+import Nombre from "../assets/iconos-perfil/username.png";
+import Verificado from "../assets/verificado.png";
+import Tlf from "../assets/iconos-perfil/tlf.png";
+import Correo from "../assets/iconos-perfil/correo.png";
+import Hora from "../assets/hora.png";
+
 function CitaFormulario() {
   const [value, setValue] = useState(null);
   const { isLoggedIn, authenticateUser, isAdmin } = useContext(AuthContext);
   const [show, setShow] = useState(false);
+  const [showReservar, setShowReservar] = useState(false);
+  const [reservaHecha, setReservaHecha] = useState(null);
   const [horarioArr, setHorarioArr] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [fecha, setFecha] = useState(null);
@@ -23,6 +32,15 @@ function CitaFormulario() {
 
   const navigate = useNavigate();
 
+  const fechaFormateada = (fechaDeLaBD) => {
+    const fecha = new Date(fechaDeLaBD);
+
+    const opciones = { year: "numeric", month: "long", day: "numeric" };
+    const fechaCambiada = fecha.toLocaleDateString("es-ES", opciones);
+    return fechaCambiada;
+  };
+
+  const handleCloseReserva = () => setShowReservar(false);
   const getData = async () => {
     try {
       const response = await service.get("/horarios");
@@ -117,12 +135,21 @@ function CitaFormulario() {
     });
   };
 
+  const mostrarModalReserva = (reserva) => {
+    console.log(reserva);
+    setReservaHecha(reserva);
+    setShowReservar(true);
+  };
+
   const filteredHorarios = horarioArr.filter((horario) => {
     const horarioDate = new Date(horario.day);
-    return (
+
+    const isSelectedDate =
       horarioDate.toDateString() ===
-      (value ? value.toDateString() : "").toString()
-    );
+      (value ? value.toDateString() : "").toString();
+    const isAvailable = !horario.cliente && !horario.servicio;
+
+    return isSelectedDate && isAvailable;
   });
 
   return (
@@ -157,7 +184,6 @@ function CitaFormulario() {
                   <Form.Control type="date" onChange={handleFecha} />
                 </Col>
               </Form.Group>
-
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column sm={2}>
                   Hora
@@ -173,10 +199,76 @@ function CitaFormulario() {
             </Form>
           </Modal.Body>
         </Modal>
+        <Modal show={showReservar} onHide={handleCloseReserva}>
+          <Modal.Header closeButton>
+            <Modal.Title>Ha programado su cita</Modal.Title>
+          </Modal.Header>
+          {reservaHecha ? (
+            <Modal.Body>
+              <strong
+                style={{
+                  fontSize: "22px",
+                  textTransform: "uppercase",
+                  fontFamily: "Hatton",
+                }}
+              >
+                Reixelnails
+              </strong>
+              <p>
+                <img
+                  src={Nombre}
+                  style={{ marginRight: "30px", width: "30px" }}
+                />
+                {reservaHecha.cliente.nombreCompleto}
+              </p>
+              <p>
+                <img
+                  src={FotoCalendario}
+                  style={{ marginRight: "30px", width: "30px" }}
+                />
+                {fechaFormateada(reservaHecha.day)}
+              </p>
+              <p>
+                <img
+                  src={Hora}
+                  style={{ marginRight: "30px", width: "30px" }}
+                />
+                {reservaHecha.horaStart}
+              </p>
+              <p>
+                <img src={Tlf} style={{ marginRight: "30px", width: "30px" }} />
+                {reservaHecha.cliente.tlf}
+              </p>
+              <p>
+                <img
+                  src={Correo}
+                  style={{ marginRight: "30px", width: "30px" }}
+                />
+                {reservaHecha.cliente.email}
+              </p>
+              <p>
+                <img
+                  src={Verificado}
+                  style={{ marginRight: "30px", width: "30px" }}
+                />
+                <strong>
+                  Su cita para {reservaHecha.servicio} ha sido confirmada.
+                </strong>
+              </p>
+            </Modal.Body>
+          ) : (
+            <p>No se ha asignado la cita.</p>
+          )}
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseReserva}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <h2>Horario</h2>
       </div>
       <Calendar
-        onChange={handleChange} //! Configura la función para manejar la selección de fecha
+        onChange={handleChange}
         value={value}
         tileClassName={tileClassName}
         tileDisabled={tileDisabled}
@@ -193,6 +285,7 @@ function CitaFormulario() {
         {filteredHorarios.map((eachHorario, index) => {
           return (
             <HorarioCard
+              mostrarModalReserva={mostrarModalReserva}
               index={index}
               eachHorario={eachHorario}
               key={index}

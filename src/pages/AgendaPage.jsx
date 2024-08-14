@@ -4,7 +4,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 import service from "../service/service.config";
-import HorarioCard from "../components/HorarioCard"
+import AgendaCard from "../components/AgendaCard"
 import Accordion from "react-bootstrap/Accordion";
 import { useNavigate } from "react-router-dom";
 
@@ -86,10 +86,10 @@ function AgendaPage() {
 
   const filteredHorarios = horarioArr.filter((horario) => {
     const horarioDate = new Date(horario.day);
-    return (
-      horarioDate.toDateString() ===
-      (value ? value.toDateString() : "").toString()
-    );
+    const isSelectedDate = horarioDate.toDateString() === (value ? value.toDateString() : "").toString();
+    const hasClienteAndServicio = horario.cliente && horario.servicio;
+
+    return isSelectedDate && hasClienteAndServicio;
   });
 
 
@@ -115,7 +115,7 @@ function AgendaPage() {
       <Accordion>
         {filteredHorarios.map((eachHorario, index) => {
           return (
-            <HorarioCard
+            <AgendaCard
               index={index}
               eachHorario={eachHorario}
               key={index}
