@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import service from "../service/service.config";
 import FotoPerfil from "../assets/iconos-perfil/icono-perfil.png";
 import FotoCorreo from "../assets/iconos-perfil/correo.png";
@@ -10,6 +10,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
 import ModalBorrarCuenta from "../components/ModalBorrarCuenta";
+import { AuthContext } from "../context/auth.context";
 
 
 function PerfilPage() {
@@ -18,6 +19,7 @@ function PerfilPage() {
   const [showModalDeleteAcount, setShowModalDeleteAcount] = useState(false);
   const [tlf,setTelefono] = useState(null)
   const [errorMessage, setErrorMessage]= useState(null)
+const { authenticateUser} = useContext(AuthContext)
 
   const navigate = useNavigate()
   const handleClose = () => setShow(false);
@@ -67,7 +69,9 @@ function PerfilPage() {
 
   const handleDelete = async () => {
     try {
-      await service.delete(`/users/${dataPerfil._id}`);
+      await service.delete(`/users`);
+      localStorage.removeItem("authToken")
+      authenticateUser()
       navigate("/")
     } catch (error) {
       console.log(error);

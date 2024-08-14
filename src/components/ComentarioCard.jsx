@@ -8,7 +8,7 @@ function ComentarioCard(props) {
     const {_id,creator,descripcion} = props.eachComentario
 
     const { isAdmin, loggedUserId } = useContext(AuthContext);
-    
+    console.log(loggedUserId)
     const handleDelete = async () => {
         try {
           await service.delete(`/comentarios/${_id}`)
@@ -25,7 +25,7 @@ function ComentarioCard(props) {
         <Card.Text >
          {descripcion}
         </Card.Text>
-         <button
+        {(creator?._id === loggedUserId || isAdmin) && <button
         className='comentario-btn-delete'
         onClick={handleDelete}
         style={{
@@ -33,7 +33,7 @@ function ComentarioCard(props) {
             border: "none",
             textTransform: "uppercase",
             fontSize: "14px",
-          }}><img src={Eliminar} width={20}/></button>
+          }}><img src={Eliminar} width={20}/></button>}
       </Card.Body>
     </Card>
   )

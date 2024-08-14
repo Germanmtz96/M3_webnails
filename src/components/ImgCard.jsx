@@ -14,7 +14,7 @@ import Img from "../assets/img.png"
 function ImgCard(props) {
   const { publicacion, getData } = props;
 
-  const { isAdmin, loggedUserId } = useContext(AuthContext);
+  const { isAdmin, loggedUserId, isLoggedIn } = useContext(AuthContext);
 
   const [modalDeletePublicacion, setModalDeletePublicacion] = useState(false);
   const [show, setShow] = useState(false);
@@ -69,6 +69,9 @@ function ImgCard(props) {
     console.log(publicacion.likes);
   };
   const getComentarios = async () => {
+    if(!isLoggedIn){
+      return
+    }
     try {
       const response = await service.get(`/comentarios/${publicacion._id}`);
       setComentarioArr(response.data);
@@ -81,16 +84,16 @@ function ImgCard(props) {
     getComentarios();
   }, []);
 
-  if (comentarioArr === null) {
+  /*if (comentarioArr === null) {
     return (
       <img src={Img} style={{width:'100px',height:'100px'}}/>
     );
-  }
+  }*/
   return (
     <>
       <Card className="cartas-galeria">
         <Card.Img
-          onClick={handleShow}
+          onClick={isLoggedIn ? handleShow : null}
           variant="top"
           alt="imagen subida"
           src={publicacion.imagen}
@@ -104,7 +107,7 @@ function ImgCard(props) {
         aria-labelledby="example-custom-modal-styling-title"
       >
         <Modal.Header closeButton>
-          { isAdmin && <button
+          {isAdmin && <button
             onClick={handleModalDeletePublicacion}
             style={{
               border: "none",
@@ -142,7 +145,7 @@ function ImgCard(props) {
             alt="imagen subida"
           />
           <Modal.Body className="comentarios-container">
-            {comentarioArr.map((eachComentario) => {
+            {comentarioArr && comentarioArr.map((eachComentario) => {
               return (
                 <ComentarioCard
                   key={eachComentario._id}
