@@ -338,11 +338,6 @@
   margin-bottom: 5px;
   overflow: hidden;
 }
-.likes-galeria {
- 
-  
-
-}
 .cartas-galeria:hover .likes-galeria {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5); 

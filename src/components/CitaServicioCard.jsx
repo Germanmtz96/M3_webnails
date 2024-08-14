@@ -2,6 +2,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import fondo from "../assets/fondo.jpg"
+import { Link } from 'react-router-dom';
 
 function CitaServicioCard() {
   return (
@@ -9,14 +10,18 @@ function CitaServicioCard() {
     <Card >
       <Card.Body style={{backgroundImage : `url(${fondo})`, backgroundSize:'cover',backgroundPosition:`center calc(100% + 200px)`, height:'200px'}}>
         <Card.Title className='titulos-comfirmacion'>Acrilicas</Card.Title>
+        <Link to="/horarios?acrilico=Acrilico">
         <Button variant="outline-light">Agendar Uñas Acrílicas</Button>
+        </Link>
       </Card.Body>
     </Card>
     
     <Card >
     <Card.Body style={{backgroundImage : `url(${fondo})`, backgroundSize:'cover',backgroundPosition:`center calc(100% + 0px)`, height:'200px'}}>
       <Card.Title className='titulos-comfirmacion'>Semipermanentes</Card.Title>
+      <Link to="/horarios?semi=Semi">
       <Button variant="outline-light">Agendar Uñas Semipermanentes</Button>
+      </Link>
     </Card.Body>
   </Card>
   <section className='conditions'>

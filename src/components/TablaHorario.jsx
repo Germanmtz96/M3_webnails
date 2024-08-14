@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import FotoCalendario from "../assets/foto-calendario.jpg"
+
 import { InlineWidget, useCalendlyEventListener, PopupWidget } from "react-calendly";
 import service from '../service/service.config';
 

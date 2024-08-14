@@ -7,7 +7,7 @@ function IntroWeb() {
         
         <h1>TUS MANOS EN MIS MANOS</h1>
         <p>Porque todos merecemos cosas únicas</p>
-        <div><Link className="btn-intro-web" to="/horarios">Reservar cita</Link></div>
+        <div><Link className="btn-intro-web" to="/cita">Reservar cita</Link></div>
         
        
     </div>
