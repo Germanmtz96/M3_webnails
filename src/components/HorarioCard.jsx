@@ -1,15 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import { AuthContext } from "../context/auth.context";
 import service from "../service/service.config";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+
 
 
 import { useLocation, useNavigate } from "react-router-dom";
 
 function HorarioCard(props) {
-  const { day, horaStart, _id, cliente, servicio } = props.eachHorario;
+  const { horaStart, _id } = props.eachHorario;
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);

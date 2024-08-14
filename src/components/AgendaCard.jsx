@@ -32,15 +32,16 @@ function AgendaCard(props) {
           <p><img src={Correo} style={{marginRight:'30px', width:'30px'}}/>{cliente.email}</p>
           <p><img src={Verificado} style={{marginRight:'30px', width:'30px'}} />Servicio {servicio}</p>
     </Accordion.Body>
-    <Accordion.Body className="datos-clientes">
+    <Accordion.Body className="datos-clientes" style={{backgroundColor:'#DFD6C2'}}>
     <button
          onClick={handleDelete} 
         style={{
+            width:'320px',
           border: "none",
           color: "black",
           textTransform: "uppercase",
           fontSize: "20px",
-          backgroundColor:'white'
+          backgroundColor:'#DFD6C2'
         }}
       >
         Eliminar Cita

@@ -9,11 +9,12 @@ import service from "../service/service.config";
 import { AuthContext } from "../context/auth.context";
 import ComentarioCard from "./ComentarioCard";
 import { useNavigate } from "react-router-dom";
+import Img from "../assets/img.png"
 
 function ImgCard(props) {
   const { publicacion, getData } = props;
 
-  const { loggedUserId } = useContext(AuthContext);
+  const { isAdmin, loggedUserId } = useContext(AuthContext);
 
   const [modalDeletePublicacion, setModalDeletePublicacion] = useState(false);
   const [show, setShow] = useState(false);
@@ -47,6 +48,7 @@ function ImgCard(props) {
     try {
       await service.delete(`/publicaciones/${publicacion._id}`);
       getData();
+      setShow(false)
       navigate("/galeria");
     } catch (error) {
       console.log(error);
@@ -81,9 +83,7 @@ function ImgCard(props) {
 
   if (comentarioArr === null) {
     return (
-      <div>
-        <h3> Loading ... </h3>;
-      </div>
+      <img src={Img} style={{width:'100px',height:'100px'}}/>
     );
   }
   return (
@@ -104,7 +104,7 @@ function ImgCard(props) {
         aria-labelledby="example-custom-modal-styling-title"
       >
         <Modal.Header closeButton>
-          <button
+          { isAdmin && <button
             onClick={handleModalDeletePublicacion}
             style={{
               border: "none",
@@ -114,7 +114,7 @@ function ImgCard(props) {
             }}
           >
             Borrar publicación
-          </button>
+          </button>}
           <Modal
             show={modalDeletePublicacion}
             onHide={handleCerrarModalDeletePublicacion}
@@ -165,7 +165,7 @@ function ImgCard(props) {
               />
             ) : (
               <img src={Like} onClick={handleLike} height="30px" alt="like" />
-            )}{" "}
+            )}
             {publicacion.likes.length} Me gusta
           </p>
           <Modal.Title id="example-custom-modal-styling-title">

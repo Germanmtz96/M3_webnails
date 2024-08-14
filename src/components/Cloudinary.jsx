@@ -4,6 +4,7 @@ import React from 'react'
 import { useState } from 'react'
 import service from '../service/service.config';
 import { useNavigate } from 'react-router-dom';
+import Img from "../assets/img.png"
 
 const Cloudinary = (props) => {
 
@@ -58,7 +59,7 @@ const Cloudinary = (props) => {
 
   return (
     <>
-    <Form style={{position:'relative'}}>
+    <Form style={{position:'relative',height:'500px',padding:'10px'}}>
         <Form.Control 
         type="file"
         name="image"
@@ -66,19 +67,20 @@ const Cloudinary = (props) => {
         accept='image/png, image/jpeg' 
         onChange={handleFileUpload}
         disabled={isUploading}
+        style={{marginBottom:'20px'}}
         />
-      <Form.Control onChange={handleTitulo} type="text" placeholder="titulo de la publicación..." />
+      <Form.Control onChange={handleTitulo} type="text" placeholder="titulo de la publicación..." style={{marginBottom:'20px'}}/>
       {imageUrl ? (<Button onClick={handleSubmit} type="submit" variant="secondary" style={{position:'absolute', transform:'translate(220%, 20%)'}}>
         Confirmar
       </Button>) : null}
       {errorMessage && <p>{errorMessage}</p>}
-    </Form>
-
-        {isUploading ? <h3>... uploading image</h3> : null}
+        {isUploading ? <img src={Img} /> : null}
 
         
         {imageUrl ? (<div><img src={imageUrl} alt="img" width={200} /></div>) : null}
         
+    </Form>
+
         </>
   );
 }

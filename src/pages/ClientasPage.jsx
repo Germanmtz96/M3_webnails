@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Form from "react-bootstrap/Form";
+import Spinner from "../assets/spinner.gif"
 
 function ClientasPage() {
   const [searchClienta, setSearchClienta] = useState("");
@@ -35,14 +36,12 @@ function ClientasPage() {
 
   if (clientasList === null) {
     return (
-      <div>
-        <h3> Loading ... </h3>;
-      </div>
+      <img src={Spinner} />
     );
   }
   console.log(clientasList);
   return (
-    <Accordion>
+    <Accordion className="clientes-container">
       <div className="clientas-encabezado">
         <Form.Control
           type="text"

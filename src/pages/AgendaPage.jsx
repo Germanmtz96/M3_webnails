@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-
+import Spinner from "../assets/spinner.gif"
 import service from "../service/service.config";
 import AgendaCard from "../components/AgendaCard"
 import Accordion from "react-bootstrap/Accordion";
@@ -33,9 +33,7 @@ function AgendaPage() {
 
   if (horarioArr === null) {
     return (
-      <div>
-        <h3> Loading ... </h3>
-      </div>
+      <img src={Spinner} />
     );
   }
 
@@ -94,12 +92,12 @@ function AgendaPage() {
 
 
   return (
-    <div className="contariner-calendario">
+    <div className="contariner-agenda">
       <div className="galeria-encabezado">
         <h2>Agenda</h2>
       </div>
       <Calendar
-        onChange={handleChange} //! Configura la función para manejar la selección de fecha
+        onChange={handleChange} 
         value={value}
         tileClassName={tileClassName}
         tileDisabled={tileDisabled}

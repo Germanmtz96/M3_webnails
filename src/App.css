@@ -228,20 +228,21 @@
 .react-calendar__month-view__weekdays__weekday {
   background-color: #8e6e5f;
   padding: 5px 0;
-  text-align: center;
   font-weight: bold;
   color: #333;
 }
 .contariner-calendario {
+  height: 760px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:space-between;
+  overflow: hidden;
+  overflow-y: auto; 
 }
 .fecha-selec{
-
+  padding: 30px;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 26px;
   margin-top: 10px;
   font-family: "Hatton";
 }
@@ -351,10 +352,13 @@
   pointer-events: none;
 }
 .galeria-container{
+  height: 660px;
   display: flex;
   flex-direction: row;
   justify-content:space-evenly;
   flex-wrap: wrap;
+  overflow: hidden;
+  overflow-y: auto; 
 }
 .foto-publicacion{
   height: 265px;
@@ -395,9 +399,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 }
-
+/* LOGIN */
+.login-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 740px;
+}
+.login-titulo{
+  font-family: 'Hatton';
+  text-transform: uppercase;
+  font-size: 26px;
+  padding: 20px;
+}
 /* PERFIL */
 .perfil-container{
   
@@ -477,6 +493,11 @@
   flex-direction: column;
   align-items:start;
 }
+.clientes-container{
+  height: 740px;
+  overflow: hidden;
+  overflow-y: auto; 
+}
 .clientas-encabezado{
   display: flex;
   flex-direction: row;
@@ -494,4 +515,37 @@
   margin: 20px;
   font-size: 30px;
   font-family: "Hatton";
+}
+/* AGENDA */
+.contariner-agenda{
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  overflow-y: auto; 
+  
+}
+/*NOT FOUND*/
+.not-found{
+  text-transform: uppercase;
+  padding: 35px;
+  font-size: 30px;
+  font-family: "Hatton";
+  margin-bottom: 0;
+}
+.not-found-container{
+  background-color: rgb(155,222,213);
+}
+
+/* ERROR */
+.error{
+  text-transform: uppercase;
+  padding: 15px;
+  font-size: 30px;
+  font-family: "Hatton";
+  margin-bottom: 0;
+}
+.error-container{
+  background-color: rgb(247,99,115);
 }

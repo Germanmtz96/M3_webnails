@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Card from 'react-bootstrap/Card';
 import service from '../service/service.config';
 import Eliminar from '../assets/borrar.png'
+import { AuthContext } from '../context/auth.context';
 
 function ComentarioCard(props) {
     const {_id,creator,descripcion} = props.eachComentario
+
+    const { isAdmin, loggedUserId } = useContext(AuthContext);
     
     const handleDelete = async () => {
         try {
@@ -22,7 +25,7 @@ function ComentarioCard(props) {
         <Card.Text >
          {descripcion}
         </Card.Text>
-        <button
+         <button
         className='comentario-btn-delete'
         onClick={handleDelete}
         style={{

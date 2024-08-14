@@ -18,10 +18,11 @@ import Verificado from "../assets/verificado.png";
 import Tlf from "../assets/iconos-perfil/tlf.png";
 import Correo from "../assets/iconos-perfil/correo.png";
 import Hora from "../assets/hora.png";
+import Spinner from "../assets/spinner.gif"
 
 function CitaFormulario() {
   const [value, setValue] = useState(null);
-  const { isLoggedIn, authenticateUser, isAdmin } = useContext(AuthContext);
+  const { isAdmin } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [showReservar, setShowReservar] = useState(false);
   const [reservaHecha, setReservaHecha] = useState(null);
@@ -57,9 +58,7 @@ function CitaFormulario() {
 
   if (horarioArr === null) {
     return (
-      <div>
-        <h3> Loading ... </h3>
-      </div>
+      <img src={Spinner} />
     );
   }
 
@@ -159,6 +158,7 @@ function CitaFormulario() {
           <button
             onClick={handleShow}
             style={{
+              width:'148px',
               margin: "20px",
               height: "30px",
               border: "none",
@@ -167,7 +167,7 @@ function CitaFormulario() {
               fontSize: "12px",
             }}
           >
-            Subir Publicación
+            Subir Horario
           </button>
         )}
         <Modal show={show} onHide={handleClose}>
@@ -281,7 +281,7 @@ function CitaFormulario() {
         showNavigation={true}
       />
       {value && <h2 className="fecha-selec">{formatDate(value)}</h2>}
-      <Accordion>
+      <Accordion className="acordeon-horas">
         {filteredHorarios.map((eachHorario, index) => {
           return (
             <HorarioCard

@@ -5,13 +5,15 @@ import service from "../service/service.config";
 import Cloudinary from "../components/Cloudinary";
 import Modal from 'react-bootstrap/Modal';
 import { AuthContext } from "../context/auth.context";
+import Spinner from "../assets/spinner.gif"
+
 
 function GaleriaPage() {
   const [show, setShow] = useState(false);
   const [publicacionArr, setPublicacionArr] = useState(null);
   const navigate = useNavigate();
 
-  const { isLoggedIn, authenticateUser, isAdmin } = useContext(AuthContext)
+  const { isAdmin } = useContext(AuthContext)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -32,9 +34,7 @@ function GaleriaPage() {
 
   if (publicacionArr === null) {
     return (
-      <div>
-        <h3> Loading ... </h3>;
-      </div>
+      <img src={Spinner} />
     );
   }
 

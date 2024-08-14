@@ -47,8 +47,8 @@ function FormularioLogin() {
     }
 
   return (
-    <div>
-        <h2></h2>
+    <div className='login-container'>
+        <h2 className='login-titulo'>Formulario de registro</h2>
 
     <Form>
       <Form.Group className="mb-3" controlId="formGroupEmail">

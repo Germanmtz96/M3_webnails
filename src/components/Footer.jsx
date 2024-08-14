@@ -27,9 +27,9 @@ function Footer() {
     <section className='redes-footer'>
     <h4>Redes sociales</h4>
     <div className='redes-sociales'>
-      <Link href="https://www.youtube.com/@elrubiusOMG"><img src={youtubeColor}  width={55} /></Link>
-      <Link href="https://www.tiktok.com/@raaqballester?_t=8ohHVfmUWxd&_r=1"><img src={tiktokColor}  width={50} /></Link>
-      <Link href="https://www.instagram.com/reixelnails?igsh=MXVqeTBiZGpvM3Uzdg%3D%3D&utm_source=qr"><img src={instagramColor} width={50} /></Link>
+      <a href="https://www.youtube.com/@elrubiusOMG"><img src={youtubeColor}  width={55} /></a>
+      <a href="https://www.tiktok.com/@raaqballester?_t=8ohHVfmUWxd&_r=1"><img src={tiktokColor}  width={50} /></a>
+      <a href="https://www.instagram.com/reixelnails?igsh=MXVqeTBiZGpvM3Uzdg%3D%3D&utm_source=qr"><img src={instagramColor} width={50} /></a>
     </div>
     </section>
     </div>

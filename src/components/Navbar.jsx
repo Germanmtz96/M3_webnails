@@ -24,7 +24,7 @@ function MyNavbar() {
           <Navbar.Brand  as={Link} to="/" style={{textTransform:"uppercase", fontSize:"12px", fontWeight: "300", letterSpacing: "0.2rem"}}>Reixelnails</Navbar.Brand>
           <Nav className="me-auto" style={{textTransform:"uppercase", fontSize:"8px",  fontFamily: "Gruppo"}}>
             <Nav.Link  as={Link} to="/servicios" >Servicios</Nav.Link>
-            { isLoggedIn && <Nav.Link  as={Link} to="/horarios" >Horario</Nav.Link>}
+            { isLoggedIn && <Nav.Link  as={Link} to="/cita" >Coger cita</Nav.Link>}
             <Nav.Link  as={Link} to="/galeria" >Galeria</Nav.Link>
           </Nav>
           <NavDropdown title="" align="end" id="basic-nav-dropdown" style={{color:'white'}}>

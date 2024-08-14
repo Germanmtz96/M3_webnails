@@ -4,22 +4,27 @@ import FotoPerfil from "../assets/iconos-perfil/icono-perfil.png";
 import FotoCorreo from "../assets/iconos-perfil/correo.png";
 import FotoTlf from "../assets/iconos-perfil/tlf.png";
 import FotoUsername from "../assets/iconos-perfil/username.png";
-
+import Spinner from "../assets/spinner.gif"
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
+import ModalBorrarCuenta from "../components/ModalBorrarCuenta";
 
 
 function PerfilPage() {
   const [dataPerfil, setDataPerfil] = useState(null);
   const [show, setShow] = useState(false);
+  const [showModalDeleteAcount, setShowModalDeleteAcount] = useState(false);
   const [tlf,setTelefono] = useState(null)
   const [errorMessage, setErrorMessage]= useState(null)
 
   const navigate = useNavigate()
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleShowModalDeleteAcount = () => setShowModalDeleteAcount(true);
+
   const handleSubmit = async (event) =>{
     event.preventDefault()
     await editTelefono()
@@ -63,7 +68,6 @@ function PerfilPage() {
   const handleDelete = async () => {
     try {
       await service.delete(`/users/${dataPerfil._id}`);
-      getData();
       navigate("/")
     } catch (error) {
       console.log(error);
@@ -71,7 +75,7 @@ function PerfilPage() {
   };
 
   if (dataPerfil === null) {
-    return <h3>Aqui va un spiner</h3>;
+    return <img src={Spinner} />
   }
   
 
@@ -138,7 +142,7 @@ function PerfilPage() {
           <p>{dataPerfil.username}</p>
         </div>
         <button
-                onClick={handleDelete}
+                onClick={handleShowModalDeleteAcount}
                 style={{
                     border: "none",
                     color: "white",
@@ -148,6 +152,7 @@ function PerfilPage() {
               >
                 Borrar Cuenta
               </button>
+              <ModalBorrarCuenta setShowModalDeleteAcount={setShowModalDeleteAcount} showModalDeleteAcount={showModalDeleteAcount} handleDelete={handleDelete}/>
       </div>
       <hr />
       <p className="privacidad">

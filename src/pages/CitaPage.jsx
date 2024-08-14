@@ -1,12 +1,12 @@
-import React from 'react'
-import CitaServicioCard from '../components/CitaServicioCard';
+import React from "react";
+import CitaServicioCard from "../components/CitaServicioCard";
 
 function CitaPage() {
   return (
     <div>
-      <CitaServicioCard/>
+      <CitaServicioCard />
     </div>
-  )
+  );
 }
 
-export default CitaPage
+export default CitaPage;
