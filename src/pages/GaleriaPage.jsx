@@ -42,8 +42,10 @@ function GaleriaPage() {
     <>
       <div className="galeria-encabezado">
         { isAdmin && <button
+        className="btn-subir-publicacion"
           onClick={handleShow}
           style={{
+            backgroundColor:"rgb(209,182,161)",
             margin: '20px',
             height:'30px',
             border: "none",

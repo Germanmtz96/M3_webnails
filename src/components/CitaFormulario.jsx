@@ -156,8 +156,10 @@ function CitaFormulario() {
       <div className="galeria-encabezado">
         {isAdmin && (
           <button
+          className="btn-subir-horario"
             onClick={handleShow}
             style={{
+              backgroundColor:"rgb(209,182,161)",
               width:'148px',
               margin: "20px",
               height: "30px",
@@ -177,22 +179,22 @@ function CitaFormulario() {
           <Modal.Body style={{ padding: "5px" }}>
             <Form>
               <Form.Group as={Row} className="mb-3">
-                <Form.Label column sm={2}>
+                <Form.Label className="dato-formulario" column sm={2}>
                   Fecha
                 </Form.Label>
                 <Col sm={10}>
-                  <Form.Control type="date" onChange={handleFecha} />
+                  <Form.Control className="dato-formulario" type="date" onChange={handleFecha} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row} className="mb-3">
-                <Form.Label column sm={2}>
+                <Form.Label className="dato-formulario" column sm={2}>
                   Hora
                 </Form.Label>
                 <Col sm={10}>
-                  <Form.Control type="time" onChange={handleHora} />
+                  <Form.Control className="dato-formulario" type="time" onChange={handleHora} />
                 </Col>
               </Form.Group>
-              <Button onClick={handleSubmit} type="submit" variant="secondary">
+              <Button onClick={handleSubmit} className="dato-formulario" type="submit" variant="secondary">
                 Confirmar
               </Button>
               {errorMessage && <p>{errorMessage}</p>}
@@ -204,7 +206,7 @@ function CitaFormulario() {
             <Modal.Title>Ha programado su cita</Modal.Title>
           </Modal.Header>
           {reservaHecha ? (
-            <Modal.Body>
+            <Modal.Body className="dato-formulario" >
               <strong
                 style={{
                   fontSize: "22px",
@@ -260,7 +262,7 @@ function CitaFormulario() {
             <p>No se ha asignado la cita.</p>
           )}
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseReserva}>
+            <Button className="dato-formulario" variant="secondary" onClick={handleCloseReserva}>
               Close
             </Button>
           </Modal.Footer>
@@ -268,6 +270,7 @@ function CitaFormulario() {
         <h2>Horario</h2>
       </div>
       <Calendar
+      className="calendario"
         onChange={handleChange}
         value={value}
         tileClassName={tileClassName}

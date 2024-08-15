@@ -64,39 +64,39 @@ function FormularioSingUp() {
         <Form className='singup-formulario'>
       
         <Form.Group controlId="formGridEmail">
-          <Form.Label>Correo electrónico</Form.Label>
-          <Form.Control onChange={handleEmailChange} style={{width:'300px'}} type="email" placeholder="ejemplo@dominio.com" />
+          <Form.Label className="singup-formulario-datos-label">Correo electrónico</Form.Label>
+          <Form.Control onChange={handleEmailChange} className="singup-formulario-datos" style={{width:'300px'}} type="email" placeholder="ejemplo@dominio.com" />
         </Form.Group>
 
         <Form.Group controlId="formGridPassword">
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control onChange={handlePasswordChange} style={{width:'300px'}} type="password" placeholder="Introduce tu contraseña" />
+          <Form.Label className="singup-formulario-datos-label">Contraseña</Form.Label>
+          <Form.Control onChange={handlePasswordChange} className="singup-formulario-datos" style={{width:'300px'}} type="password" placeholder="Introduce tu contraseña" />
         </Form.Group>
       
       
       <Form.Group  controlId="formGridName">
-        <Form.Label>Nombre </Form.Label>
-        <Form.Control onChange={handleNombreChange} style={{width:'300px'}} type="text" placeholder="Tu nombre" />
+        <Form.Label className="singup-formulario-datos-label">Nombre </Form.Label>
+        <Form.Control onChange={handleNombreChange} className="singup-formulario-datos" style={{width:'300px'}} type="text" placeholder="Tu nombre" />
       </Form.Group>
 
       <Form.Group  controlId="formGridApellido">
-        <Form.Label>Apellidos</Form.Label>
-        <Form.Control onChange={handleApellidosChange} style={{width:'300px'}} type="text" placeholder="Tus apellidos" />
+        <Form.Label className="singup-formulario-datos-label">Apellidos</Form.Label>
+        <Form.Control onChange={handleApellidosChange} className="singup-formulario-datos" style={{width:'300px'}} type="text" placeholder="Tus apellidos" />
       </Form.Group>
       
       
         <Form.Group controlId="formGridState">
-          <Form.Label>Nombre de usuario</Form.Label>
-          <Form.Control onChange={handleUsernameChange} style={{width:'300px'}} placeholder="Elige un nombre de usuario"/>
+          <Form.Label className="singup-formulario-datos-label">Nombre de usuario</Form.Label>
+          <Form.Control onChange={handleUsernameChange} className="singup-formulario-datos" style={{width:'300px'}} placeholder="Elige un nombre de usuario"/>
         </Form.Group>
 
         <Form.Group controlId="formGridPhone">
-          <Form.Label>Telefono</Form.Label>
-          <Form.Control onChange={handleTlfChange} style={{width:'300px'}} type="tel" placeholder="Tu número de teléfono"/>
+          <Form.Label className="singup-formulario-datos-label">Telefono</Form.Label>
+          <Form.Control onChange={handleTlfChange} className="singup-formulario-datos" style={{width:'300px'}} type="tel" placeholder="Tu número de teléfono"/>
         </Form.Group>
       
 
-      <Button onClick={handleSingup} style={{width:'140px',height:'40px'}}variant="dark" type="submit">
+      <Button onClick={handleSingup} className="btn-singup" style={{width:'140px',height:'40px'}}variant="dark" type="submit">
         Confirmar
       </Button>
 

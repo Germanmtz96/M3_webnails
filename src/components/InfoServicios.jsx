@@ -30,7 +30,7 @@ function InfoServicios() {
           </p>
         </div>
       </section>
-      <section>
+      <section className="btn-servicios-home">
         <Link className="btn-servicios-home" to="/servicios">
           Más información
         </Link>

@@ -52,15 +52,15 @@ function FormularioLogin() {
 
     <Form>
       <Form.Group className="mb-3" controlId="formGroupEmail">
-        <Form.Label>Correo electrónico</Form.Label>
-        <Form.Control onChange={handleEmailChange} style={{width:'300px'}} type="email" placeholder="Introduce tu correo electrónico" />
+        <Form.Label className="formulario-login">Correo electrónico</Form.Label>
+        <Form.Control onChange={handleEmailChange} className="formulario-login" style={{width:'300px'}} type="email" placeholder="Introduce tu correo electrónico" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formGroupPassword">
-        <Form.Label>Contraseña</Form.Label>
-        <Form.Control onChange={handlePasswordChange} style={{width:'300px'}} type="password" placeholder="Introduce tu contraseña" />
+        <Form.Label className="formulario-login">Contraseña</Form.Label>
+        <Form.Control onChange={handlePasswordChange} className="formulario-login" style={{width:'300px'}} type="password" placeholder="Introduce tu contraseña" />
       </Form.Group>
 
-    <Button  onClick={handleLogin}  style={{width:'140px',height:'40px'}}variant="dark" type="submit">
+    <Button  onClick={handleLogin} className="btn-formulario-login" style={{width:'140px',height:'40px'}}variant="dark" type="submit">
         Confirmar
       </Button>
 

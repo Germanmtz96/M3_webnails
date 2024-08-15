@@ -9,6 +9,7 @@ function CitaServicioCard() {
     <>
       <Card>
         <Card.Body
+        className="cita-card-1"
           style={{
             backgroundImage: `url(${fondo})`,
             backgroundSize: "cover",
@@ -16,15 +17,16 @@ function CitaServicioCard() {
             height: "200px",
           }}
         >
-          <Card.Title className="titulos-comfirmacion">Acrilicas</Card.Title>
+          <Card.Title className="titulos-confirmacion">Acrilicas</Card.Title>
           <Link to="/horarios?acrilico=Acrilico">
-            <Button variant="outline-light">Agendar Uñas Acrílicas</Button>
+            <Button className="btn-cita" variant="outline-light">Agendar Uñas Acrílicas</Button>
           </Link>
         </Card.Body>
       </Card>
 
       <Card>
         <Card.Body
+         className="cita-card"
           style={{
             backgroundImage: `url(${fondo})`,
             backgroundSize: "cover",
@@ -32,11 +34,11 @@ function CitaServicioCard() {
             height: "200px",
           }}
         >
-          <Card.Title className="titulos-comfirmacion">
+          <Card.Title className="titulos-confirmacion">
             Semipermanentes
           </Card.Title>
           <Link to="/horarios?semi=Semi">
-            <Button variant="outline-light">
+            <Button className="btn-cita" variant="outline-light">
               Agendar Uñas Semipermanentes
             </Button>
           </Link>

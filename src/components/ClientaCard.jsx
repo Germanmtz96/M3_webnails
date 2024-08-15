@@ -17,7 +17,7 @@ function ClientaCard(props) {
   return (
     <Accordion.Item eventKey={index}>
       <Accordion.Header>
-        {clienta.nombreCompleto.toUpperCase()}
+      <p>{clienta.nombreCompleto.toUpperCase()}</p>
       </Accordion.Header>
       <Accordion.Body className="datos-clientes">
         <p>
@@ -33,8 +33,10 @@ function ClientaCard(props) {
           <strong>Cuando se registro:</strong> {clienta.createdAt}
         </p>
         <button
+        className="btn-delete-usuario"
           onClick={handleDelete}
           style={{
+            backgroundColor:"rgb(209,182,161)",
             border: "none",
             color: "white",
             textTransform: "uppercase",

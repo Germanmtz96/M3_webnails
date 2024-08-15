@@ -96,7 +96,9 @@ function AgendaPage() {
       <div className="galeria-encabezado">
         <h2>Agenda</h2>
       </div>
+      <div className='agenda-calendario'>
       <Calendar
+      className="calendario"
         onChange={handleChange} 
         value={value}
         tileClassName={tileClassName}
@@ -109,8 +111,8 @@ function AgendaPage() {
         minDetail="month"
         showNavigation={true}
       />
-      {value && <h2 className="fecha-selec">{formatDate(value)}</h2>}
       <Accordion>
+      {value && <h2 className="fecha-selec">{formatDate(value)}</h2>}
         {filteredHorarios.map((eachHorario, index) => {
           return (
             <AgendaCard
@@ -122,6 +124,7 @@ function AgendaPage() {
           );
         })}
       </Accordion>
+      </div>
     </div>
   )
 }

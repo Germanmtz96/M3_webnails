@@ -146,6 +146,7 @@ const { authenticateUser} = useContext(AuthContext)
           <p>{dataPerfil.username}</p>
         </div>
         <button
+        className="btn-borrar-myAcount"
                 onClick={handleShowModalDeleteAcount}
                 style={{
                     border: "none",

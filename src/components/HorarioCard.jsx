@@ -71,6 +71,7 @@ function HorarioCard(props) {
       </Accordion.Header>
       <Accordion.Body className="datos-clientes">
         <button
+        className="dato-formulario"
           onClick={handleAgendar}
           style={{
             border: "none",
@@ -87,6 +88,7 @@ function HorarioCard(props) {
       {isAdmin && (
         <Accordion.Body className="datos-clientes">
           <button
+          className="dato-formulario"
             onClick={handleDelete}
             style={{
               border: "none",

@@ -7,8 +7,10 @@ function HomePage() {
   return (
     <div className='home-page'>
       <IntroWeb />
+      <div className='home-info'>
       <InfoServicios />
       <SobreMi />
+      </div>
     </div>
   )
 }

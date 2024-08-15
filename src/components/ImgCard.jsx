@@ -9,7 +9,7 @@ import service from "../service/service.config";
 import { AuthContext } from "../context/auth.context";
 import ComentarioCard from "./ComentarioCard";
 import { useNavigate } from "react-router-dom";
-import Img from "../assets/img.png"
+
 
 function ImgCard(props) {
   const { publicacion, getData } = props;
@@ -84,11 +84,7 @@ function ImgCard(props) {
     getComentarios();
   }, []);
 
-  /*if (comentarioArr === null) {
-    return (
-      <img src={Img} style={{width:'100px',height:'100px'}}/>
-    );
-  }*/
+  
   return (
     <>
       <Card className="cartas-galeria">
@@ -98,7 +94,6 @@ function ImgCard(props) {
           alt="imagen subida"
           src={publicacion.imagen}
         />
-        <p className="likes-galeria">{publicacion.likes.length}</p>
       </Card>
       <Modal
         show={show}
@@ -108,8 +103,10 @@ function ImgCard(props) {
       >
         <Modal.Header closeButton>
           {isAdmin && <button
+          className="btn-borrar-publicacion"
             onClick={handleModalDeletePublicacion}
             style={{
+              backgroundColor:"rgb(209,182,161)",
               border: "none",
               color: "white",
               textTransform: "uppercase",
@@ -127,12 +124,13 @@ function ImgCard(props) {
             </Modal.Header>
             <Modal.Footer>
               <Button
+              className="btn-borrar-publicacion"
                 variant="secondary"
                 onClick={handleCerrarModalDeletePublicacion}
               >
                 No
               </Button>
-              <Button variant="primary" onClick={handleDelete}>
+              <Button className="btn-borrar-publicacion" variant="primary" onClick={handleDelete}>
                 Si
               </Button>
             </Modal.Footer>

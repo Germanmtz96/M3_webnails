@@ -6,8 +6,8 @@ function IntroWeb() {
     <div className='intro-web'>
         
         <h1>TUS MANOS EN MIS MANOS</h1>
-        <p>Porque todos merecemos cosas únicas</p>
-        <div><Link className="btn-intro-web" to="/cita">Reservar cita</Link></div>
+        <h2>Porque todos merecemos cosas únicas</h2>
+        <div className="btn-intro-web"><Link className="btn-intro-web" to="/cita">Reservar cita</Link></div>
         
        
     </div>

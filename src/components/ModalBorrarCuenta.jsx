@@ -14,10 +14,10 @@ function ModalBorrarCuenta(props) {
       <Modal.Title>¿Estas seguro de querer borrar tu cuenta?</Modal.Title>
     </Modal.Header>
     <Modal.Footer>
-      <Button variant="secondary" onClick={handleCloseModalDeleteAcount}>
+      <Button className="dato-formulario" variant="secondary" onClick={handleCloseModalDeleteAcount}>
         No
       </Button>
-      <Button style={{backgroundColor:'rgb(209,182,161)', border:'none'}} onClick={handleDelete}>
+      <Button style={{backgroundColor:'rgb(209,182,161)', border:'none'}} className="dato-formulario" onClick={handleDelete}>
         Si
       </Button>
     </Modal.Footer>

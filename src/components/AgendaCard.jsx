@@ -27,7 +27,7 @@ function AgendaCard(props) {
       <h2 style={{marginLeft:'120px',marginRight:'120px'}}>{horaStart}</h2>
     </Accordion.Header>
     <Accordion.Body className="datos-clientes">
-          <p style={{ fontSize:'14px',textTransform:'uppercase',fontFamily:'Hatton'}}><img src={Nombre} style={{marginRight:'30px', width:'30px'}}/>{cliente.nombreCompleto}</p>
+          <p className="nombre-reserva" ><img src={Nombre} style={{marginRight:'30px', width:'30px'}}/>{cliente.nombreCompleto}</p>
           <p><img src={Tlf} style={{marginRight:'30px', width:'30px'}} />{cliente.tlf}</p>
           <p><img src={Correo} style={{marginRight:'30px', width:'30px'}}/>{cliente.email}</p>
           <p><img src={Verificado} style={{marginRight:'30px', width:'30px'}} />Servicio {servicio}</p>
