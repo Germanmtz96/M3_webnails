@@ -129,7 +129,7 @@ function FormularioSingUp() {
             placeholder="Tu número de teléfono"
           />
         </Form.Group>
-
+<br />
         <Button
           onClick={handleSingup}
           className="btn-singup"
