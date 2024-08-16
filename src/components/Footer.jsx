@@ -1,12 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 
 import instagramColor from '../assets/iconos-footer/instagram-color.png'
 import tiktokColor from '../assets/iconos-footer/tiktok-color.png'
 import youtubeColor from '../assets/iconos-footer/youtube-color.png'
-import instagramByn from '../assets/iconos-footer/instagram-byn.png'
-import tiktokByn from '../assets/iconos-footer/tiktok-byn.png'
-import youtubeByn from '../assets/iconos-footer/youtube-byn.png'
+
 
 function Footer() {
   return (

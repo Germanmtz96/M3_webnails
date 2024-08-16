@@ -1,18 +1,16 @@
-import React from 'react'
+import React from "react";
 import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import Spinner from "../assets/spinner.gif"
+import Spinner from "../assets/spinner.gif";
 import service from "../service/service.config";
-import AgendaCard from "../components/AgendaCard"
+import AgendaCard from "../components/AgendaCard";
 import Accordion from "react-bootstrap/Accordion";
 import { useNavigate } from "react-router-dom";
 
-
 function AgendaPage() {
-  
   const [value, setValue] = useState(null);
- 
+
   const [horarioArr, setHorarioArr] = useState(null);
 
   const navigate = useNavigate();
@@ -32,9 +30,7 @@ function AgendaPage() {
   }, []);
 
   if (horarioArr === null) {
-    return (
-      <img src={Spinner} />
-    );
+    return <img src={Spinner} />;
   }
 
   const today = new Date();
@@ -72,7 +68,6 @@ function AgendaPage() {
     }
   };
 
-
   const formatDate = (date) => {
     if (!date) return "";
     return date.toLocaleDateString("es-ES", {
@@ -84,49 +79,50 @@ function AgendaPage() {
 
   const filteredHorarios = horarioArr.filter((horario) => {
     const horarioDate = new Date(horario.day);
-    const isSelectedDate = horarioDate.toDateString() === (value ? value.toDateString() : "").toString();
+    const isSelectedDate =
+      horarioDate.toDateString() ===
+      (value ? value.toDateString() : "").toString();
     const hasClienteAndServicio = horario.cliente && horario.servicio;
 
     return isSelectedDate && hasClienteAndServicio;
   });
-
 
   return (
     <div className="contariner-agenda">
       <div className="galeria-encabezado">
         <h2>Agenda</h2>
       </div>
-      <div className='agenda-calendario'>
-      <Calendar
-      className="calendario"
-        onChange={handleChange} 
-        value={value}
-        tileClassName={tileClassName}
-        tileDisabled={tileDisabled}
-        minDate={minDate}
-        maxDate={maxDate}
-        onActiveDateChange={({ activeStartDate }) => {
-          handleMonthChange(activeStartDate);
-        }}
-        minDetail="month"
-        showNavigation={true}
-      />
-      <Accordion>
-      {value && <h2 className="fecha-selec">{formatDate(value)}</h2>}
-        {filteredHorarios.map((eachHorario, index) => {
-          return (
-            <AgendaCard
-              index={index}
-              eachHorario={eachHorario}
-              key={index}
-              getData={getData}
-            />
-          );
-        })}
-      </Accordion>
+      <div className="agenda-calendario">
+        <Calendar
+          className="calendario"
+          onChange={handleChange}
+          value={value}
+          tileClassName={tileClassName}
+          tileDisabled={tileDisabled}
+          minDate={minDate}
+          maxDate={maxDate}
+          onActiveDateChange={({ activeStartDate }) => {
+            handleMonthChange(activeStartDate);
+          }}
+          minDetail="month"
+          showNavigation={true}
+        />
+        <Accordion>
+          {value && <h2 className="fecha-selec">{formatDate(value)}</h2>}
+          {filteredHorarios.map((eachHorario, index) => {
+            return (
+              <AgendaCard
+                index={index}
+                eachHorario={eachHorario}
+                key={index}
+                getData={getData}
+              />
+            );
+          })}
+        </Accordion>
       </div>
     </div>
-  )
+  );
 }
 
-export default AgendaPage
+export default AgendaPage;

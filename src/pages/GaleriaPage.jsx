@@ -3,17 +3,16 @@ import ImgCard from "../components/ImgCard";
 import { useNavigate } from "react-router-dom";
 import service from "../service/service.config";
 import Cloudinary from "../components/Cloudinary";
-import Modal from 'react-bootstrap/Modal';
+import Modal from "react-bootstrap/Modal";
 import { AuthContext } from "../context/auth.context";
-import Spinner from "../assets/spinner.gif"
-
+import Spinner from "../assets/spinner.gif";
 
 function GaleriaPage() {
   const [show, setShow] = useState(false);
   const [publicacionArr, setPublicacionArr] = useState(null);
   const navigate = useNavigate();
 
-  const { isAdmin } = useContext(AuthContext)
+  const { isAdmin } = useContext(AuthContext);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -33,35 +32,35 @@ function GaleriaPage() {
   }, []);
 
   if (publicacionArr === null) {
-    return (
-      <img src={Spinner} />
-    );
+    return <img src={Spinner} />;
   }
 
   return (
     <>
       <div className="galeria-encabezado">
-        { isAdmin && <button
-        className="btn-subir-publicacion"
-          onClick={handleShow}
-          style={{
-            backgroundColor:"rgb(209,182,161)",
-            margin: '20px',
-            height:'30px',
-            border: "none",
-            color: "white",
-            textTransform: "uppercase",
-            fontSize: "12px",
-          }}
-        >
-          Subir Publicación
-        </button>}
-        <Modal show={show} onHide={handleClose} >
+        {isAdmin && (
+          <button
+            className="btn-subir-publicacion"
+            onClick={handleShow}
+            style={{
+              backgroundColor: "rgb(209,182,161)",
+              margin: "20px",
+              height: "30px",
+              border: "none",
+              color: "white",
+              textTransform: "uppercase",
+              fontSize: "12px",
+            }}
+          >
+            Subir Publicación
+          </button>
+        )}
+        <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Subir Publicación</Modal.Title>
           </Modal.Header>
-          <Modal.Body style={{padding:'5px'}}>
-            <Cloudinary getData={getData} handleClose={handleClose}/>
+          <Modal.Body style={{ padding: "5px" }}>
+            <Cloudinary getData={getData} handleClose={handleClose} />
           </Modal.Body>
         </Modal>
         <h2>Galeria</h2>

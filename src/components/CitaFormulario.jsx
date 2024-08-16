@@ -18,7 +18,7 @@ import Verificado from "../assets/verificado.png";
 import Tlf from "../assets/iconos-perfil/tlf.png";
 import Correo from "../assets/iconos-perfil/correo.png";
 import Hora from "../assets/hora.png";
-import Spinner from "../assets/spinner.gif"
+import Spinner from "../assets/spinner.gif";
 
 function CitaFormulario() {
   const [value, setValue] = useState(null);
@@ -57,9 +57,7 @@ function CitaFormulario() {
   }, []);
 
   if (horarioArr === null) {
-    return (
-      <img src={Spinner} />
-    );
+    return <img src={Spinner} />;
   }
 
   const today = new Date();
@@ -156,11 +154,11 @@ function CitaFormulario() {
       <div className="galeria-encabezado">
         {isAdmin && (
           <button
-          className="btn-subir-horario"
+            className="btn-subir-horario"
             onClick={handleShow}
             style={{
-              backgroundColor:"rgb(209,182,161)",
-              width:'148px',
+              backgroundColor: "rgb(209,182,161)",
+              width: "148px",
               margin: "20px",
               height: "30px",
               border: "none",
@@ -183,7 +181,11 @@ function CitaFormulario() {
                   Fecha
                 </Form.Label>
                 <Col sm={10}>
-                  <Form.Control className="dato-formulario" type="date" onChange={handleFecha} />
+                  <Form.Control
+                    className="dato-formulario"
+                    type="date"
+                    onChange={handleFecha}
+                  />
                 </Col>
               </Form.Group>
               <Form.Group as={Row} className="mb-3">
@@ -191,10 +193,19 @@ function CitaFormulario() {
                   Hora
                 </Form.Label>
                 <Col sm={10}>
-                  <Form.Control className="dato-formulario" type="time" onChange={handleHora} />
+                  <Form.Control
+                    className="dato-formulario"
+                    type="time"
+                    onChange={handleHora}
+                  />
                 </Col>
               </Form.Group>
-              <Button onClick={handleSubmit} className="dato-formulario" type="submit" variant="secondary">
+              <Button
+                onClick={handleSubmit}
+                className="dato-formulario"
+                type="submit"
+                variant="secondary"
+              >
                 Confirmar
               </Button>
               {errorMessage && <p>{errorMessage}</p>}
@@ -206,7 +217,7 @@ function CitaFormulario() {
             <Modal.Title>Ha programado su cita</Modal.Title>
           </Modal.Header>
           {reservaHecha ? (
-            <Modal.Body className="dato-formulario" >
+            <Modal.Body className="dato-formulario">
               <strong
                 style={{
                   fontSize: "22px",
@@ -262,7 +273,11 @@ function CitaFormulario() {
             <p>No se ha asignado la cita.</p>
           )}
           <Modal.Footer>
-            <Button className="dato-formulario" variant="secondary" onClick={handleCloseReserva}>
+            <Button
+              className="dato-formulario"
+              variant="secondary"
+              onClick={handleCloseReserva}
+            >
               Close
             </Button>
           </Modal.Footer>
@@ -270,7 +285,7 @@ function CitaFormulario() {
         <h2>Horario</h2>
       </div>
       <Calendar
-      className="calendario"
+        className="calendario"
         onChange={handleChange}
         value={value}
         tileClassName={tileClassName}

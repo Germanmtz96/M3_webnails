@@ -978,7 +978,7 @@ margin-right: 200px!important;
 .divs-perfil > div img{
   width: 50px;
   position: absolute;
-  transform: translate(-490%, 50%); 
+  transform: translate(-600%, 50%); 
 }
 .btn-edit-tlf{
   transform: translate(110%, -150%); 
@@ -1023,5 +1023,7 @@ font-size: 30px;
   height: 80px!important;
   font-size: 30px;
 }
-  
+.comentario-btn-delete{
+  margin-left: -15px;
+}
 }
